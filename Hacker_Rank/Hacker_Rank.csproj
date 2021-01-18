@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4788AEB9-18D1-4C33-B912-5F8A8C8BB2D4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Hacker_Rank</RootNamespace>
+    <AssemblyName>Hacker_Rank</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Array\Array Manipulation.cs" />
+    <Compile Include="Array\DS.cs" />
+    <Compile Include="Array\Dynamic_Array.cs" />
+    <Compile Include="Array\Left Rotation.cs" />
+    <Compile Include="demo.cs" />
+    <Compile Include="Dictionaries and Hashmaps\Hash Tables_ Ransom Note.cs" />
+    <Compile Include="Dictionaries and Hashmaps\Hash Table_Random Note _ Solution 2.cs" />
+    <Compile Include="Dictionaries and Hashmaps\Two Strings.cs" />
+    <Compile Include="Array\Minimum Swaps 2.cs" />
+    <Compile Include="Linked List\Cycle Detection.cs" />
+    <Compile Include="Linked List\Find Merge.cs" />
+    <Compile Include="Linked List\Insert a node at the head of a linked list.cs" />
+    <Compile Include="Linked List\Insert a Node at the Tail of a Linked List.cs" />
+    <Compile Include="Linked List\Insert Linked List.cs" />
+    <Compile Include="Linked List\Inserting Sorted Doubly.cs" />
+    <Compile Include="Linked List\Print the Elements of a Linked List.cs" />
+    <Compile Include="Linked List\Reverse Doubly Linked List.cs" />
+    <Compile Include="Miscellaneous\Flipping bits.cs" />
+    <Compile Include="Miscellaneous\Friend Circle Queries.cs" />
+    <Compile Include="Miscellaneous\Friend Circle Queries_Disjoint Set.cs" />
+    <Compile Include="Miscellaneous\Maximum Xor.cs" />
+    <Compile Include="Miscellaneous\Time Complexity_Primality.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Search\Ice_Cream.cs" />
+    <Compile Include="Search\Ice_Cream_2.cs" />
+    <Compile Include="Sort\Bubble Sort.cs" />
+    <Compile Include="Sort\Mark and Toys.cs" />
+    <Compile Include="Stacks and Queues\Balanced Brackets.cs" />
+    <Compile Include="Stacks and Queues\Stack.cs" />
+    <Compile Include="Trees\BST_ Lowest Common Ancestor.cs" />
+    <Compile Include="Trees\Huffman Decoding.cs" />
+    <Compile Include="Trees\Trees_ Is This a Binary Search Tree.cs" />
+    <Compile Include="Trees\Tree_Height of a Binary Tree.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
