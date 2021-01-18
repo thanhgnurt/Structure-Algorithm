@@ -30,11 +30,11 @@ namespace Algorithm_Pratice
            // PrintArray.PrintTest(input4);
             
             CreateAVL AVL_Tree = new CreateAVL();
-            for(int i =0; i< input2.Length; i++)
+            for(int i = 0; i< input2.Length; i++)
             {
                 AVL_Tree.InsertNode(input2[i]);
             }
-            Console.WriteLine(AVL_Tree.Search(59));
+            Console.WriteLine(AVL_Tree.Delete(55));
             Browser_Tree.BrowerAVL_LNR(AVL_Tree.root);
 
             //Linear_Exhaustive.LinearExhaustive(input2, 28);
@@ -69,7 +69,7 @@ namespace Algorithm_Pratice
             newTree.InsertNode(6);
             newTree.InsertNode(7);
             newTree.InsertNode(12);
-            int index = newTree.root.Search(12);
+            int index = newTree.Search(16);
             Console.WriteLine(index);
 ;
             // Implement_Queue_Linked_List<int> queueLL = new Implement_Queue_Linked_List<int>();
