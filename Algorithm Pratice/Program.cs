@@ -10,6 +10,7 @@ using Algorithm_Pratice.Sort;
 using Algorithm_Pratice.Trees;
 using Algorithm_Pratice.Search;
 using Algorithm_Pratice.Test;
+using Algorithm_Pratice.Common;
 
 namespace Algorithm_Pratice
 {
@@ -22,18 +23,19 @@ namespace Algorithm_Pratice
             int[] input3 = new int[6] { 1, 2, 6, 4 , 7, 3 };
             int[] input4 = new int[8] { 2, 9, 5, 12, 20, 15, -8, 10 };
             //Quick_Sort_Pivot_Mid.QuickSortDecrease(ref input4, 0, input4.Length-1);
-            Heap_Sort.HeapSort(ref input4);
+           // Heap_Sort.HeapSort(ref input4);
             
             //
             
-            PrintArray.PrintTest(input4);
+           // PrintArray.PrintTest(input4);
             
-           // CreateAVL AVL_Tree = new CreateAVL();
-           // for(int i =0; i< input3.Length; i++)
-           // {
-           //     AVL_Tree.InsertNode(input3[i]);
-          //  }
-          //  Console.WriteLine("Ket qua node: {0}", AVL_Tree.root.right.right.data);
+            CreateAVL AVL_Tree = new CreateAVL();
+            for(int i =0; i< input2.Length; i++)
+            {
+                AVL_Tree.InsertNode(input2[i]);
+            }
+            Console.WriteLine(AVL_Tree.Search(59));
+            Browser_Tree.BrowerAVL_LNR(AVL_Tree.root);
 
             //Linear_Exhaustive.LinearExhaustive(input2, 28);
             // StackCus StackDemo = new StackCus(10);

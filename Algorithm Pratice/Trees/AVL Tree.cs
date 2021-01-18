@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm_Pratice.Trees
 {
-    class NodeAVL
+    public class NodeAVL
     {
         public int data;
         public NodeAVL left;
@@ -80,11 +80,14 @@ namespace Algorithm_Pratice.Trees
                     int checkSecondary = CheckBalanceNode(node.left);
                     if (checkSecondary > 0)
                     {
+                        BalanceLR(node);
+                        return;
                         //mat can bang LR
                     }
                     else
                     {
                         //mat can bang LL
+                        BalanceLL(node);
                     }
                 }
                 //chua mat can bang
@@ -102,6 +105,31 @@ namespace Algorithm_Pratice.Trees
 
 
         }
+
+        //----
+        public bool Search(NodeAVL P, int x)
+        {
+            if(P!= null)
+            {
+                if(x < P.data)
+                {
+                    return Search(P.left, x);
+                }
+                else
+                {
+                    if(x> P.data)
+                    {
+                        return Search(P.right, x);
+                    }else
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+      
         
         //-- handle imbalance
         void BalanceRR(NodeAVL P)
@@ -113,6 +141,17 @@ namespace Algorithm_Pratice.Trees
             RightRotation(P.right, P.right.left);
             LeftRotation(P, P.right);
         }
+        void BalanceLL(NodeAVL P)
+        {
+            RightRotation(P, P.left);
+        }
+        void BalanceLR(NodeAVL P)
+        {
+            LeftRotation(P.left, P.left.right);
+            RightRotation(P, P.left);
+
+        }
+
 
         void LeftRotation(NodeAVL P , NodeAVL Q)
         {
@@ -185,6 +224,15 @@ namespace Algorithm_Pratice.Trees
         public void CheckBalanceInsert()
         {
             //int balance = root.CheckBalanceInsert(root);
+        }
+
+        public bool Search(int data)
+        {
+            if (root != null)
+            {
+                return root.Search(root, data);
+            }
+            return false;
         }
 
 
