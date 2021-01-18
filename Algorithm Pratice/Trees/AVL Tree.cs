@@ -17,6 +17,12 @@ namespace Algorithm_Pratice.Trees
             this.left = null;
             this.right = null;
         }
+        public NodeAVL()
+        {
+            data = 0;
+            left = null;
+            right = null;
+        }
         public void InsertNode(int dataNode)
         {
 
@@ -107,27 +113,7 @@ namespace Algorithm_Pratice.Trees
         }
 
         //----
-        public bool Search(NodeAVL P, int x)
-        {
-            if(P!= null)
-            {
-                if(x < P.data)
-                {
-                    return Search(P.left, x);
-                }
-                else
-                {
-                    if(x> P.data)
-                    {
-                        return Search(P.right, x);
-                    }else
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
+
 
       
         
@@ -225,14 +211,113 @@ namespace Algorithm_Pratice.Trees
         {
             //int balance = root.CheckBalanceInsert(root);
         }
-
-        public bool Search(int data)
+        public bool Delete(int x)
         {
-            if (root != null)
+            return SearchDelete(root, x);
+        }
+
+
+        bool SearchDelete(NodeAVL P, int x)
+        {
+            if(x < P.data)
             {
-                return root.Search(root, data);
+               if(P.left!= null)
+                {
+                    if(x == P.left.data)
+                    {
+                        int numberChild = CheckCaseDelete(P.left);
+                        DeleteGeneration(P, -1, numberChild);
+                        return true;
+                    }
+                    if(x > P.left.data)
+                    {
+                        return SearchDelete(P.left, x);
+                    }
+                }
+                return false;
             }
-            return false;
+            else
+            {
+                if(P.right!= null)
+                {
+                    if (x == P.right.data)
+                    {
+                        int numberChild = CheckCaseDelete(P.right);
+                        DeleteGeneration(P, 1, numberChild);
+                        return true;
+                    }
+                    else
+                    {
+                        return SearchDelete(P.right, x);
+                    }
+                }
+                return false;
+            }
+        }
+        void DeleteGeneration(NodeAVL P, int kind, int numberChild)
+        {
+            if (kind == 1 && numberChild == 0) Delete_0_Child(P, kind);
+        }
+        // Delete 0 child 
+        void Delete_0_Child(NodeAVL parent, int kind)
+        {
+            if (kind == 1) parent.right = null;
+            else parent.left = null;
+        }
+        // Delete 1 child
+        void Delete_1_Child(NodeAVL parent, int kind, int childDelete)
+        {
+            if (kind == 1)
+            {
+                if (childDelete == 1) parent.right = parent.right.right;
+                else parent.right = parent.right.left;
+            }
+            else
+            {
+                if (childDelete == 1) parent.left = parent.left.right;
+                else parent.left = parent.left.left;
+            }
+        }
+
+
+
+        int CheckCaseDelete(NodeAVL P)
+        {
+            if (P.left != null && P.right != null) return 2;
+            if (P.left == null && P.right == null) return 0;
+            if (P.left != null) return -1;
+            return 1;
+        }
+
+        public bool Search(int x)
+        {
+            NodeAVL result = Search(root, x);
+            if (result != null) return true;
+            else return false;
+        }
+        NodeAVL Search(NodeAVL P,int x)
+        {
+            if (P != null)
+            {
+                //return root.Search(root, data);
+                if (x < P.data)
+                {
+                    return Search(P.left, x);
+                }
+                else
+                {
+                    if (x > P.data)
+                    {
+                        return Search(P.right, x);
+                    }
+                    else
+                    {
+                        return P;
+                    }
+                }
+
+            }
+            return null;
         }
 
 
