@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Algorithm_Pratice.Trees;
+using Algorithm_Pratice.Trees.AVL;
 
 
 namespace Algorithm_Pratice.Common
