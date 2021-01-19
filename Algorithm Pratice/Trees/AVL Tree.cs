@@ -57,7 +57,7 @@ namespace Algorithm_Pratice.Trees
             }
         }
 
-        public void CheckBalanceInsert(NodeAVL node, int newData)
+        public void CheckBalance(NodeAVL node, int newData)
         {
             if (node != null)
             {
@@ -100,11 +100,11 @@ namespace Algorithm_Pratice.Trees
 
                 if (newData > node.data)
                 {
-                    CheckBalanceInsert(node.right, newData);
+                    CheckBalance(node.right, newData);
                 }
                 else
                 {
-                    CheckBalanceInsert(node.left, newData);
+                    CheckBalance(node.left, newData);
                 }
 
             }
@@ -203,13 +203,13 @@ namespace Algorithm_Pratice.Trees
             else
             {
                 root.InsertNode(dataNode);
-                root.CheckBalanceInsert(root, dataNode);
+                root.CheckBalance(root, dataNode);
             }
             
         }
         public void CheckBalanceInsert()
         {
-            //int balance = root.CheckBalanceInsert(root);
+          // root.CheckBalanceNode(root);
         }
         public bool Delete(int x)
         {
@@ -269,8 +269,18 @@ namespace Algorithm_Pratice.Trees
             //delete 0 child
             if (numberChild == 0)
             {
-                if (kind == 1) parent.right = null;
-                else parent.left = null;
+                if (kind == 1)
+                {
+                    int temp = parent.right.data;
+                    parent.right = null;
+                    root.CheckBalance(root, temp);
+                }
+                else
+                {
+                    int temp = parent.left.data;
+                    parent.left = null;
+                    root.CheckBalance(root, temp);
+                }
                 return;
             }
             // delete 1 child
@@ -279,11 +289,13 @@ namespace Algorithm_Pratice.Trees
                 if(kind == 1)
                 {
                     parent.right = parent.right.right;
+                    root.CheckBalance(root, parent.right.data);
                     return;
                 }
                 else
                 {
                     parent.right = parent.right.left;
+                    root.CheckBalance(root, parent.right.data);
                     return;
                 }
             }
@@ -292,11 +304,13 @@ namespace Algorithm_Pratice.Trees
                 if (kind == 1)
                 {
                     parent.left = parent.left.right;
+                    root.CheckBalance(root, parent.left.data);
                     return;
                 }
                 else
                 {
                     parent.left = parent.left.left;
+                    root.CheckBalance(root, parent.left.data);
                     return;
                 }
             }
@@ -308,6 +322,7 @@ namespace Algorithm_Pratice.Trees
                 Delete(mostLeft.data);
                 mostLeft.data = parent.data;
                 parent.data = temp;
+                root.CheckBalance(root, parent.left.data);
                 return;
 
             }
@@ -318,6 +333,7 @@ namespace Algorithm_Pratice.Trees
                 Delete(mostLeft.data);
                 mostLeft.data = parent.right.data;
                 parent.right.data = temp;
+                root.CheckBalance(root, parent.right.left.data);
             }
             else
             {
@@ -326,6 +342,8 @@ namespace Algorithm_Pratice.Trees
                 Delete(mostLeft.data);
                 mostLeft.data = parent.left.data;
                 parent.left.data = temp;
+                root.CheckBalance(root, parent.left.left.data);
+
             }
 
 
