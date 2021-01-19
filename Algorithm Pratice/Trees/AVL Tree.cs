@@ -57,13 +57,13 @@ namespace Algorithm_Pratice.Trees
             }
         }
 
-        public void CheckBalanceInsert(NodeAVL node, int newData)
+        public void CheckBalance(NodeAVL node, int newData)
         {
             if (node != null)
             {
                 if (node.data == newData) return;
                 int checkPrimary = CheckBalanceNode(node);
-                int kt = node.data;
+                //int kt = node.data;
                 if (checkPrimary >= 2)
                 {
                     //- mat can bang right right
@@ -100,11 +100,11 @@ namespace Algorithm_Pratice.Trees
 
                 if (newData > node.data)
                 {
-                    CheckBalanceInsert(node.right, newData);
+                    CheckBalance(node.right, newData);
                 }
                 else
                 {
-                    CheckBalanceInsert(node.left, newData);
+                    CheckBalance(node.left, newData);
                 }
 
             }
@@ -203,34 +203,44 @@ namespace Algorithm_Pratice.Trees
             else
             {
                 root.InsertNode(dataNode);
-                root.CheckBalanceInsert(root, dataNode);
+                root.CheckBalance(root, dataNode);
             }
             
         }
         public void CheckBalanceInsert()
         {
-            //int balance = root.CheckBalanceInsert(root);
+          // root.CheckBalanceNode(root);
         }
         public bool Delete(int x)
         {
+
             return SearchDelete(root, x);
         }
 
 
         bool SearchDelete(NodeAVL P, int x)
         {
+            int numberChild;
+            if(P.data == x)
+            {
+                numberChild = -2;
+                DeleteGeneration(P, -2, numberChild);
+                return true;
+
+            }
             if(x < P.data)
             {
                if(P.left!= null)
                 {
                     if(x == P.left.data)
                     {
-                        int numberChild = CheckCaseDelete(P.left);
+                        numberChild = CheckCaseDelete(P.left);
                         DeleteGeneration(P, -1, numberChild);
                         return true;
                     }
-                    if(x > P.left.data)
+                    else
                     {
+
                         return SearchDelete(P.left, x);
                     }
                 }
@@ -242,7 +252,7 @@ namespace Algorithm_Pratice.Trees
                 {
                     if (x == P.right.data)
                     {
-                        int numberChild = CheckCaseDelete(P.right);
+                        numberChild = CheckCaseDelete(P.right);
                         DeleteGeneration(P, 1, numberChild);
                         return true;
                     }
@@ -254,33 +264,97 @@ namespace Algorithm_Pratice.Trees
                 return false;
             }
         }
-        void DeleteGeneration(NodeAVL P, int kind, int numberChild)
+        void DeleteGeneration(NodeAVL parent, int kind, int numberChild)
         {
-            if (kind == 1 && numberChild == 0) Delete_0_Child(P, kind);
-        }
-        // Delete 0 child 
-        void Delete_0_Child(NodeAVL parent, int kind)
-        {
-            if (kind == 1) parent.right = null;
-            else parent.left = null;
-        }
-        // Delete 1 child
-        void Delete_1_Child(NodeAVL parent, int kind, int childDelete)
-        {
-            if (kind == 1)
+            //delete 0 child
+            if (numberChild == 0)
             {
-                if (childDelete == 1) parent.right = parent.right.right;
-                else parent.right = parent.right.left;
+                if (kind == 1)
+                {
+                    int temp = parent.right.data;
+                    parent.right = null;
+                    root.CheckBalance(root, temp);
+                }
+                else
+                {
+                    int temp = parent.left.data;
+                    parent.left = null;
+                    root.CheckBalance(root, temp);
+                }
+                return;
+            }
+            // delete 1 child
+            if(numberChild == 1)
+            {
+                if(kind == 1)
+                {
+                    parent.right = parent.right.right;
+                    root.CheckBalance(root, parent.right.data);
+                    return;
+                }
+                else
+                {
+                    parent.right = parent.right.left;
+                    root.CheckBalance(root, parent.right.data);
+                    return;
+                }
+            }
+            if(numberChild == -1)
+            {
+                if (kind == 1)
+                {
+                    parent.left = parent.left.right;
+                    root.CheckBalance(root, parent.left.data);
+                    return;
+                }
+                else
+                {
+                    parent.left = parent.left.left;
+                    root.CheckBalance(root, parent.left.data);
+                    return;
+                }
+            }
+            //--delete 2 child
+            if (numberChild == -2)
+            {
+                NodeAVL mostLeft = FindDeleteMostLeft(parent.left);
+                int temp = mostLeft.data;
+                Delete(mostLeft.data);
+                mostLeft.data = parent.data;
+                parent.data = temp;
+                root.CheckBalance(root, parent.left.data);
+                return;
+
+            }
+            if(kind == 1)
+            {
+                NodeAVL mostLeft = FindDeleteMostLeft(parent.right.left);
+                int temp = mostLeft.data;
+                Delete(mostLeft.data);
+                mostLeft.data = parent.right.data;
+                parent.right.data = temp;
+                root.CheckBalance(root, parent.right.left.data);
             }
             else
             {
-                if (childDelete == 1) parent.left = parent.left.right;
-                else parent.left = parent.left.left;
+                NodeAVL mostLeft = FindDeleteMostLeft(parent.left.left);
+                int temp = mostLeft.data;
+                Delete(mostLeft.data);
+                mostLeft.data = parent.left.data;
+                parent.left.data = temp;
+                root.CheckBalance(root, parent.left.left.data);
+
             }
+
+
         }
-
-
-
+        // find the most left
+        NodeAVL FindDeleteMostLeft(NodeAVL left)
+        {
+            if (left.right == null) return left;
+            else return FindDeleteMostLeft(left.right);
+        }
+        
         int CheckCaseDelete(NodeAVL P)
         {
             if (P.left != null && P.right != null) return 2;
@@ -289,30 +363,34 @@ namespace Algorithm_Pratice.Trees
             return 1;
         }
 
+
+        //---
+        
+        
+
         public bool Search(int x)
         {
             NodeAVL result = Search(root, x);
             if (result != null) return true;
             else return false;
         }
-        NodeAVL Search(NodeAVL P,int x)
+        NodeAVL Search(NodeAVL root,int x)
         {
-            if (P != null)
+            if (root != null)
             {
-                //return root.Search(root, data);
-                if (x < P.data)
+                if (x < root.data)
                 {
-                    return Search(P.left, x);
+                    return Search(root.left, x);
                 }
                 else
                 {
-                    if (x > P.data)
+                    if (x > root.data)
                     {
-                        return Search(P.right, x);
+                        return Search(root.right, x);
                     }
                     else
                     {
-                        return P;
+                        return root;
                     }
                 }
 
