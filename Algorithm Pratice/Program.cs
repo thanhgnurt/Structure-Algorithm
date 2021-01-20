@@ -18,18 +18,19 @@ namespace Algorithm_Pratice
     {
         static void Main(string[] args)
         {
-            int[] input = new int[9] { 5, 3, 10, 2, 4, 6, 7, 12,1 };
+            int[] input = new int[9] { 5, 3, 10, 2, 4, 6, 7, 12,100 };
             int[] input2 = new int[7] { 45, 22, 37, 28, 55, 16, 38};
             int[] input3 = new int[8] { 2, 3, 4, 5 ,6, 7,10,12 };
             int[] input4 = new int[8] { 2, 9, 5, 12, 20, 15, -8, 10 };
 
             //merge sort
-            Merge_Sort.MergeSort(ref input, 0, 8);
-            PrintArray.Print(input);
+            // Merge_Sort.MergeSort(ref input, 0, 8);
 
 
             //Quick_Sort_Pivot_Mid.QuickSortDecrease(ref input4, 0, input4.Length-1);
-           // Heap_Sort.HeapSort(ref input4);
+            //Heap_Sort.HeapSort(ref input);
+            input = Radix_Sort.RadixSort(input);
+            PrintArray.Print(input);
             
             //
             
