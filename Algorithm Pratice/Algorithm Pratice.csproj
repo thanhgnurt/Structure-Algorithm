@@ -55,12 +55,12 @@
     <Compile Include="Sort\Counting_Sort.cs" />
     <Compile Include="Sort\Heap Sort.cs" />
     <Compile Include="Sort\Insertion_Sort.cs" />
+    <Compile Include="Sort\Merge Sort.cs" />
     <Compile Include="Sort\Quick Sort Pivot Mid.cs" />
     <Compile Include="Sort\Quick Sort Pivot End.cs" />
     <Compile Include="Sort\Selection Sort.cs" />
     <Compile Include="Sort\Shell Sort.cs" />
     <Compile Include="Stack\Deloyment Stack.cs" />
-    <Compile Include="Test\PrintArray.cs" />
     <Compile Include="Trees\AVL\NodeAVL.cs" />
     <Compile Include="Trees\AVL\CreateAVL.cs" />
     <Compile Include="Trees\Binary Search Tree.cs" />
