@@ -14,16 +14,14 @@ namespace Algorithm_Pratice.Sort
             //-- tao day heap;
             MakeHeap(ref arr, n);
             int i = n - 1;
-            while (i > 0)
+            while (i > 1)
             {
                 Swap(ref arr, 0, i);
-                if(i> 1)
-                {
-
-                    Correction(ref arr, 0, i);
-                }
+                Correction(ref arr, 0, i);
+              
                 i--;
             }
+            Swap(ref arr, 0, i);
         }
 
         public static void MakeHeap(ref int[] arr, int n)
