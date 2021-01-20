@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace Algorithm_Pratice.Common
 {
-    class PrintArray
+    public class PrintArray
     {
+        public static void Print(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine("Array[{0}] = {1}", i, arr[i]);
+            }
+
+        }
     }
 }
