@@ -8,9 +8,8 @@ namespace Algorithm_Pratice.Trees.AA
 {
     interface InFaceTreeAA
     {
-
         NodeAA root { get; set; }
-        void InsertNode(int dataNote);
+        bool Insert(int dataNote);
     }
 
     interface InFaceNodeAA
@@ -19,6 +18,6 @@ namespace Algorithm_Pratice.Trees.AA
         int level { get; set; }
         NodeAA left { get; set; }
         NodeAA right { get; set; }
-
+        bool InsertNode(NodeAA root, int newNode);
     }
 }
