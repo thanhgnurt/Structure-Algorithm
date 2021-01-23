@@ -11,6 +11,7 @@ using Algorithm_Pratice.Trees;
 using Algorithm_Pratice.Search;
 using Algorithm_Pratice.Common;
 using Algorithm_Pratice.Trees.AVL;
+using Algorithm_Pratice.Trees.AA;
 
 namespace Algorithm_Pratice
 {
@@ -24,13 +25,20 @@ namespace Algorithm_Pratice
 
             //Quick_Sort_Pivot_Mid.QuickSortDecrease(ref input4, 0, input4.Length-1);
             //Heap_Sort.HeapSort(ref input);
-            input = Radix_Sort.RadixSort(input);
-            PrintArray.Print(input);
-            
+            //input = Radix_Sort.RadixSort(input);
+            //PrintArray.Print(input);
+
             //
-            
-           // PrintArray.PrintTest(input4);
-            
+            TreeAA treeAA = new TreeAA();
+            for(int i =0; i< 9; i++)
+            {
+                treeAA.Insert(input[i]);
+            }
+
+            Console.WriteLine(treeAA.root.right.data);
+
+            // PrintArray.PrintTest(input4);
+
 
 
             //Linear_Exhaustive.LinearExhaustive(input2, 28);

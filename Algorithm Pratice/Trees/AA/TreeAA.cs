@@ -13,18 +13,20 @@ namespace Algorithm_Pratice.Trees.AA
         {
             root = null;
         }
-        public TreeAA(int data)
+        public TreeAA(int newData)
         {
-            root.data = data;
-            root.level = 1;
-            root.left = null;
-            root.right = null;
+            NodeAA node = new NodeAA(newData);
+            root = node;
         }
-        public void InsertNode(int dataNode)
+        public bool Insert(int newData)
         {
             if (root == null)
             {
+                NodeAA node = new NodeAA(newData);
+                root = node;
+                return true;
             }
+            return root.InsertNode(root, newData);
         }
 
     }

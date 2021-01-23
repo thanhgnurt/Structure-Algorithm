@@ -19,5 +19,40 @@ namespace Algorithm_Pratice.Trees.AA
             right = null;
             level = 1;
         }
+        public bool InsertNode(NodeAA root,int newData)
+        {
+            if (newData == root.data) return false;
+            if(newData > root.data)
+            {
+                if (root.right == null)
+                {
+                    NodeAA node = new NodeAA(newData);
+                    root.right = node;
+                    return true;
+                }
+                else
+                {
+                    return InsertNode(root.right, newData);
+                }
+            }
+            else
+            {
+                if (root.left == null)
+                {
+                    NodeAA node = new NodeAA(newData);
+                    root.left = node;
+                    return true;
+                }
+                else
+                {
+                    return InsertNode(root.left, newData);
+                }
+            }
+
+        }
+
+
+
+
     }
 }
