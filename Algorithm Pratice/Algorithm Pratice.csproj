@@ -61,10 +61,12 @@
     <Compile Include="Sort\Shell Sort.cs" />
     <Compile Include="Stack\Deloyment Stack.cs" />
     <Compile Include="Test\PrintArray.cs" />
+    <Compile Include="Trees\AA\InterfaceAA.cs" />
+    <Compile Include="Trees\AA\NodeAA.cs" />
+    <Compile Include="Trees\AA\TreeAA.cs" />
     <Compile Include="Trees\AVL\NodeAVL.cs" />
     <Compile Include="Trees\AVL\CreateAVL.cs" />
     <Compile Include="Trees\Binary Search Tree.cs" />
-    <Compile Include="Trees\TreeAA.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
