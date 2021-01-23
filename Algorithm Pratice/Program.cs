@@ -21,11 +21,6 @@ namespace Algorithm_Pratice
             int[] input = new int[9] { 5, 3, 10, 2, 4, 6, 7, 12,100 };
             int[] input2 = new int[7] { 45, 22, 37, 28, 55, 16, 38};
             int[] input3 = new int[8] { 2, 3, 4, 5 ,6, 7,10,12 };
-            int[] input4 = new int[8] { 2, 9, 5, 12, 20, 15, -8, 10 };
-
-            //merge sort
-            // Merge_Sort.MergeSort(ref input, 0, 8);
-
 
             //Quick_Sort_Pivot_Mid.QuickSortDecrease(ref input4, 0, input4.Length-1);
             //Heap_Sort.HeapSort(ref input);
@@ -36,16 +31,7 @@ namespace Algorithm_Pratice
             
            // PrintArray.PrintTest(input4);
             
-          //  CreateAVL AVL_Tree = new CreateAVL();
-          //  for(int i = 0; i< input.Length; i++)
-           // {
-           //     AVL_Tree.InsertNode(input[i]);
-           // }
-           // AVL_Tree.Delete(4);
-           // AVL_Tree.Delete(5);
-           // AVL_Tree.Delete(5);
-           // Console.WriteLine(AVL_Tree.root.left.right.data);
-          //  Browser_Tree.BrowerAVL_LNR(AVL_Tree.root);
+
 
             //Linear_Exhaustive.LinearExhaustive(input2, 28);
             // StackCus StackDemo = new StackCus(10);
