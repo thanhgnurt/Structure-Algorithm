@@ -18,6 +18,33 @@ namespace Algorithm_Pratice.Trees.AVL
             root = null;
         }
 
+        public int HeightTree()
+        {
+            return HeightTree(root);
+        }
+        public int MinHeightLeaf()
+        {
+            return MinHeightLeaf(root);
+        }
+
+        int HeightTree(NodeAVL root)
+        {
+            if (root == null) return 0;
+            else
+            {
+                return 1 + Math.Max(HeightTree(root.left), HeightTree(root.right));
+            }
+        }
+        int MinHeightLeaf(NodeAVL root)
+        {
+            if (root == null) return 0;
+            else
+            {
+                if (root.left == null) return 1 + MinHeightLeaf(root.right);
+                if (root.right == null) return 1 + MinHeightLeaf(root.left);
+                return 1 + Math.Min(MinHeightLeaf(root.left), MinHeightLeaf(root.right));
+            }
+        }
         public void InsertNode(int dataNode)
         {
             if (root == null)
@@ -125,8 +152,8 @@ namespace Algorithm_Pratice.Trees.AVL
             {
                 if (kind == 1)
                 {
-                    parent.left = parent.left.right;
-                    root.CheckBalance(root, parent.left.data);
+                    parent.right = parent.right.left;
+                    root.CheckBalance(root, parent.right.data);
                     return;
                 }
                 else
