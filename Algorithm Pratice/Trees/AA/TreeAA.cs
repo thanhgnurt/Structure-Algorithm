@@ -26,7 +26,15 @@ namespace Algorithm_Pratice.Trees.AA
                 root = node;
                 return true;
             }
-            return root.InsertNode(root, newData);
+            bool insert = root.InsertNode(root, newData);
+            Balance(root, newData);
+            return insert;
+
+        }
+        void Balance(NodeAA root, int newData)
+        {
+            while (!root.CheckBalance(root, newData)) ;
+
         }
 
     }

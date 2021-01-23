@@ -35,7 +35,7 @@ namespace Algorithm_Pratice
                 treeAA.Insert(input[i]);
             }
 
-            Console.WriteLine(treeAA.root.right.data);
+            Console.WriteLine(treeAA.root.level);
 
             // PrintArray.PrintTest(input4);
 
