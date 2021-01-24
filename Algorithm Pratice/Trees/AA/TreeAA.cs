@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm_Pratice.Trees.AA
 {
-    class TreeAA : InFaceTreeAA
+    class TreeAA : MethodProtectedTree, InFaceTreeAA
     {
         public NodeAA root { get; set; }
         public TreeAA()
@@ -26,16 +26,20 @@ namespace Algorithm_Pratice.Trees.AA
                 root = node;
                 return true;
             }
-            bool insert = root.InsertNode(root, newData);
-            Balance(root, newData);
+            bool insert = InsertTree(this, newData);
+            BalanceTree(root, newData);
             return insert;
 
         }
-        void Balance(NodeAA root, int newData)
+        public bool Delete(int keyDelete)
         {
-            while (!root.CheckBalance(root, newData)) ;
-
+            return true;
         }
+        public bool Search(int keySearch)
+        {
+            return SearchNode(root, keySearch);
+        }
+        
 
     }
 }
