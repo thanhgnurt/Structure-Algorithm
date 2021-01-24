@@ -63,6 +63,8 @@
     <Compile Include="Sort\Selection Sort.cs" />
     <Compile Include="Sort\Shell Sort.cs" />
     <Compile Include="Stack\Deloyment Stack.cs" />
+    <Compile Include="Trees\AA\MethodProtectedNode.cs" />
+    <Compile Include="Trees\AA\MethodProtectedTree.cs" />
     <Compile Include="Trees\AA\InterfaceAA.cs" />
     <Compile Include="Trees\AA\NodeAA.cs" />
     <Compile Include="Trees\AA\TreeAA.cs" />

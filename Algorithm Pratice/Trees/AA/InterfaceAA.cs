@@ -10,6 +10,8 @@ namespace Algorithm_Pratice.Trees.AA
     {
         NodeAA root { get; set; }
         bool Insert(int dataNote);
+        bool Search(int keySearch);
+        bool Delete(int keyDelete);
     }
 
     interface InFaceNodeAA
@@ -18,6 +20,5 @@ namespace Algorithm_Pratice.Trees.AA
         int level { get; set; }
         NodeAA left { get; set; }
         NodeAA right { get; set; }
-        bool InsertNode(NodeAA root, int newNode);
     }
 }
