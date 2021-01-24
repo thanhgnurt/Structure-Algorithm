@@ -17,7 +17,7 @@ namespace Algorithm_Pratice.Trees.AA
                 Skew(node); return false;
                 //skew node;
             }
-            if (node.right.right != null && node.right.right.level == node.level)
+            if (node.right!=null && node.right.right != null && node.right.right.level == node.level)
             {
                 Split(node);
                 node.level++; return false;
@@ -28,6 +28,7 @@ namespace Algorithm_Pratice.Trees.AA
                 if (node.left == null || node.right == null)
                 {
                     //xu ly ha level node;
+                    node.level--;
                     return false;
                 }
             }
@@ -88,17 +89,86 @@ namespace Algorithm_Pratice.Trees.AA
 
         }
 
-        protected bool SearchNode(NodeAA node, int keySearch)
+        protected NodeAA SearchNode(NodeAA node, int keySearch)
         {
-            if (node == null) return false;
+            if (node == null) return null;
             else
             {
-                if (node.data == keySearch) return true;
+                if (node.data == keySearch) return node;
                 if (keySearch > node.data) return SearchNode(node.right, keySearch);
                 else return SearchNode(node.left, keySearch);
             }
 
         }
+        protected NodeAA SearchParent(NodeAA node, int keySearch)
+        {
+            if(keySearch > node.data)
+            {
+                if (node.right != null)
+                {
+                    if (node.right.data == keySearch) return node;
+                    else return SearchParent(node.right, keySearch);
+                }
+                else
+                {
+                    return null;
+                }
+                
+
+            }
+            else
+            {
+                if (node.left != null)
+                {
+                    if (node.left.data == keySearch) return node;
+                    else return SearchParent(node.left, keySearch);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+
+        protected bool DeleteNode(TreeAA tree, int keyDelete)
+        {
+            NodeAA node = SearchNode(tree.root, keyDelete);
+            if (node == null) return false;
+            else
+            {
+                if(node.left==null && node.right == null)
+                {
+                    //xoa node la
+                    DeleteLeaf(tree, keyDelete);
+                    return true;
+                }
+                else
+                {
+                    //xoa node co 2 con
+                    return true;
+                }
+
+            }
+
+        }
+        
+        void DeleteLeaf( TreeAA tree, int keyDelete)
+        {
+            NodeAA nodeParent = SearchParent(tree.root, keyDelete);
+            if (nodeParent!=null)
+            {
+                if (keyDelete < nodeParent.data) nodeParent.left = null;
+                else nodeParent.right = null;
+            }
+            else
+            {
+                if (tree.root.data == keyDelete)
+                {
+                    tree.root = null;
+                }
+            }
+        }
+
         //end class
     }
 }
