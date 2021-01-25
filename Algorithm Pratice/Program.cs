@@ -19,8 +19,8 @@ namespace Algorithm_Pratice
     {
         static void Main(string[] args)
         {
-            int[] input = new int[9] { 5, 3, 10, 2, 4, 6, 7, 12,100 };
-            int[] input2 = new int[7] { 45, 22, 37, 28, 55, 16, 38};
+            int[] input = new int[13] { 3, 2, 1, 4, 6, 10, 12, 5, 8, 11, 13, 7, 9 };
+            int[] input2 = new int[7] { 45, 22, 37, 28, 55, 16, 38 };
             int[] input3 = new int[8] { 2, 3, 4, 5 ,6, 7,10,12 };
 
             //Quick_Sort_Pivot_Mid.QuickSortDecrease(ref input4, 0, input4.Length-1);
@@ -30,13 +30,16 @@ namespace Algorithm_Pratice
 
             //
             TreeAA treeAA = new TreeAA();
-            for(int i =0; i< 9; i++)
+            for(int i =0; i< 13; i++)
             {
                 treeAA.Insert(input[i]);
             }
-
-            Console.WriteLine(treeAA.root.right.right.right.data);
-            Console.WriteLine(treeAA.Search(4));
+            treeAA.Delete(1);
+            Console.WriteLine(treeAA.root.right.right.data);
+            ///Console.WriteLine(treeAA.Search(100));
+            //treeAA.Delete(100);
+           // Console.WriteLine(treeAA.Search(100));
+           // Console.WriteLine(treeAA.root.right.right.right.data);
 
             // PrintArray.PrintTest(input4);
 
