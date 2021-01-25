@@ -11,6 +11,32 @@ namespace Algorithm_Pratice.Trees.AA
 
         protected bool BalanceNode(NodeAA node)
         {
+            if (node.level > 1)
+            {
+
+                if (node.left == null || node.right == null)
+                {
+                    //xu ly ha level node;
+                    node.level = 1;
+                    return false;
+                }
+                if (node.left.level == node.level - 2 || node.right.level == node.level - 2)
+                {
+                    node.level--;
+                    return false;
+                }
+
+                if (node.right.level > node.level)
+                {
+                    node.right.level--;
+                    return false;
+                }
+                if (node.left.level > node.level)
+                {
+                    node.left.level--;
+                    return false;
+                }
+            }
 
             if (node.left != null && node.level == node.left.level)
             {
@@ -23,15 +49,8 @@ namespace Algorithm_Pratice.Trees.AA
                 node.level++; return false;
                 //split node;
             }
-            if (node.level > 1)
-            {
-                if (node.left == null || node.right == null)
-                {
-                    //xu ly ha level node;
-                    node.level--;
-                    return false;
-                }
-            }
+
+ 
             return true;
         }
 
