@@ -33,6 +33,7 @@ namespace Algorithm_Pratice.Trees.AA
         }
         public bool Delete(int keyDelete)
         {
+            Console.WriteLine("Delete-------------");
             bool result = DeleteNode(this, keyDelete);
            // BalanceTree(root, keyDelete);
             return result;

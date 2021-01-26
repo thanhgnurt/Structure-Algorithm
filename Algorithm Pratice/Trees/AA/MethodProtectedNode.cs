@@ -32,11 +32,13 @@ namespace Algorithm_Pratice.Trees.AA
 
             if (node.left != null && node.level == node.left.level)
             {
+                Console.WriteLine("skew node: {0}", node.data);
                 Skew(node); return false;
                 //skew node;
             }
             if (node.right != null && node.right.right != null && node.right.right.level == node.level)
             {
+                Console.WriteLine("split node: {0}", node.data);
                 Split(node);
                 node.level++; return false;
                 //split node;

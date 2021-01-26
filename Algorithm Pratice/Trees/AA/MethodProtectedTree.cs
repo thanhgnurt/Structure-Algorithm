@@ -20,7 +20,7 @@ namespace Algorithm_Pratice.Trees.AA
 
         protected bool CheckBalance(NodeAA node, int newData)
         {
-            if (node == null || node.data == newData) return true;
+            if (node == null ) return true;
             else
             {
                 bool check = BalanceNode(node);
@@ -83,8 +83,11 @@ namespace Algorithm_Pratice.Trees.AA
                 }
                 else
                 {
-                    DeleteBough(tree, node);
-                    while (!CheckBalanceDeleteBough(tree.root)) ;
+                    int numberTest = DeleteBough(tree, node);
+                    while (!CheckBalance(tree.root, numberTest))
+                    {
+                        Console.WriteLine("root: {0}", tree.root.data);
+                    }
                     //xoa node co 2 con
                     return true;
                 }
@@ -93,7 +96,7 @@ namespace Algorithm_Pratice.Trees.AA
 
         }
 
-        protected void DeleteBough(TreeAA tree, NodeAA node)
+        protected int DeleteBough(TreeAA tree, NodeAA node)
         {
             NodeAA leftBestChild = FindLeftBestChild(node.left);
             NodeAA parentLBC = SearchParent(node, leftBestChild.data);
@@ -110,7 +113,7 @@ namespace Algorithm_Pratice.Trees.AA
             {
                 parentLBC.right.level = 1;
             }
-
+            return parentLBC.data;
         }
 
 
