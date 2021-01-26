@@ -34,7 +34,7 @@ namespace Algorithm_Pratice.Trees.AA
         public bool Delete(int keyDelete)
         {
             bool result = DeleteNode(this, keyDelete);
-            BalanceTree(root, keyDelete);
+           // BalanceTree(root, keyDelete);
             return result;
         }
         public bool Search(int keySearch)
