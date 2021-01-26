@@ -18,13 +18,10 @@ namespace Algorithm_Pratice.Trees.AA
                 {
                     Console.WriteLine("ha node 2: {0}", node.data);
                     node.level--;
-                    return false;
-                }
-
-                if (node.right.level > node.level)
-                {
-                    Console.WriteLine("ha node 3: {0}", node.data);
-                    node.right.level--;
+                    if (node.right.level > node.level)
+                    {
+                        node.right.level--;
+                    }
                     return false;
                 }
 
