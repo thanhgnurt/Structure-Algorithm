@@ -35,7 +35,7 @@ namespace Algorithm_Pratice
                 treeAA.Insert(input[i]);
             }
             treeAA.Delete(1);
-            Console.WriteLine(treeAA.root.right.right.data);
+            Console.WriteLine(treeAA.root.right.left.data);
             ///Console.WriteLine(treeAA.Search(100));
             //treeAA.Delete(100);
            // Console.WriteLine(treeAA.Search(100));
