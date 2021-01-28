@@ -11,26 +11,37 @@ namespace Algorithm_Pratice.Trees.AA
 
         protected bool BalanceNode(NodeAA node)
         {
+            if (node.level > 1)
+            {
+
+                if (node.left.level == node.level - 2 || node.right.level == node.level - 2)
+                {
+                    Console.WriteLine("ha node 2: {0}", node.data);
+                    node.level--;
+                    if (node.right.level > node.level)
+                    {
+                        node.right.level--;
+                    }
+                    return false;
+                }
+
+            }
 
             if (node.left != null && node.level == node.left.level)
             {
+                Console.WriteLine("skew node: {0}", node.data);
                 Skew(node); return false;
                 //skew node;
             }
-            if (node.right.right != null && node.right.right.level == node.level)
+            if (node.right != null && node.right.right != null && node.right.right.level == node.level)
             {
+                Console.WriteLine("split node: {0}", node.data);
                 Split(node);
                 node.level++; return false;
                 //split node;
             }
-            if (node.level > 1)
-            {
-                if (node.left == null || node.right == null)
-                {
-                    //xu ly ha level node;
-                    return false;
-                }
-            }
+
+
             return true;
         }
 
@@ -88,17 +99,20 @@ namespace Algorithm_Pratice.Trees.AA
 
         }
 
-        protected bool SearchNode(NodeAA node, int keySearch)
+        protected NodeAA SearchNode(NodeAA node, int keySearch)
         {
-            if (node == null) return false;
+            if (node == null) return null;
             else
             {
-                if (node.data == keySearch) return true;
+                if (node.data == keySearch) return node;
                 if (keySearch > node.data) return SearchNode(node.right, keySearch);
                 else return SearchNode(node.left, keySearch);
             }
 
         }
+
+
+
         //end class
     }
 }

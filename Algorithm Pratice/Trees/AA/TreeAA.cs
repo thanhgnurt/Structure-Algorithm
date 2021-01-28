@@ -33,11 +33,15 @@ namespace Algorithm_Pratice.Trees.AA
         }
         public bool Delete(int keyDelete)
         {
-            return true;
+            Console.WriteLine("Delete-------------");
+            bool result = DeleteNode(this, keyDelete);
+           // BalanceTree(root, keyDelete);
+            return result;
         }
         public bool Search(int keySearch)
         {
-            return SearchNode(root, keySearch);
+            if (SearchNode(root, keySearch) == null) return false;
+            return true;
         }
         
 
