@@ -21,9 +21,9 @@ namespace Algorithm_Pratice.Sort
         public static void CountSort(ref int[] arr, int radix)
         {
             int n = arr.Length;
-            int[] repo = new int[9];
+            int[] repo = new int[10];
             int[] output = new int[n];
-            for(int i =0; i< 9; i++)
+            for(int i =0; i< repo.Length; i++)
             {
                 repo[i] = 0;
             }

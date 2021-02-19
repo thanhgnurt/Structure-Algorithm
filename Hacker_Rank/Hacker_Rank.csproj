@@ -69,6 +69,7 @@
     <Compile Include="Search\Ice_Cream.cs" />
     <Compile Include="Search\Ice_Cream_2.cs" />
     <Compile Include="Sort\Bubble Sort.cs" />
+    <Compile Include="Sort\FraudulentActivityNotifications.cs" />
     <Compile Include="Sort\Mark and Toys.cs" />
     <Compile Include="Stacks and Queues\Balanced Brackets.cs" />
     <Compile Include="Stacks and Queues\Stack.cs" />
