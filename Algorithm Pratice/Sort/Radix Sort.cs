@@ -11,14 +11,14 @@ namespace Algorithm_Pratice.Sort
         public static int[] RadixSort(int[] arr)
         {
             int max = FindMax(arr);
-            for (int i = 1; i<= max ; i *=10)
+            for (int i = 1; max/i>0 ; i *=10)
             {
-                CountSort(ref arr, i);
+                CountSort(arr, i);
             }
             return arr;
 
         }
-        public static void CountSort(ref int[] arr, int radix)
+        public static void CountSort(int[] arr, int radix)
         {
             int n = arr.Length;
             int[] repo = new int[10];
