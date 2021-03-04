@@ -6,68 +6,42 @@ using System.Threading.Tasks;
 
 namespace Hacker_Rank.Greedy_Algorithms
 {
-    class Minimum_Absolute_Difference_in_an_Array
+    class Luck_Balance
     {
-        //--the solution 1 normal use 2 loop not passed timeout limit
-        static int minimumAbsoluteDifference(int[] arr)
+        // Complete the luckBalance function below.
+        static int luckBalance(int k, int[][] contests)
         {
-            int minAbsDif = AbsoluteDifference(arr[0], arr[1]);
-            for (int i = 0; i < arr.Length; i++)
+            //--create the array denotes the contest's important rating
+            int maxBalance = 0;
+            int[] luckBala = new int[contests.GetLength(0)];
+            for (int i = 0; i < contests.GetLength(0); i++)
             {
-                for (int j = i + 1; j < arr.Length; j++)
+                maxBalance += contests[i][0];
+                if (contests[i][1] == 1)
                 {
-                    if (minAbsDif > AbsoluteDifference(arr[i], arr[j]))
-                    {
-                        minAbsDif = AbsoluteDifference(arr[i], arr[j]);
-                        if (minAbsDif == 0) return minAbsDif;
-                    }
+                    luckBala.Add(contests[i][0]);
                 }
             }
-            return minAbsDif;
+            //--sort array denotes the contest's important rating
+            int lenCurrentLuckBalan = luckBala.LenCurrent();
+            QuickSort(luckBala, lenCurrentLuckBalan);
 
-
-        }
-        static int AbsoluteDifference(int a, int b)
-        {
-            int difference = a - b;
-            if (difference < 0)
+            for (int i = 0; i < lenCurrentLuckBalan - k + 1; i++)
             {
-                return -difference;
+                maxBalance -= 2 * luckBala[i];
             }
-            return difference;
+            return maxBalance;
         }
-
-        //--the solution 2 use quicksort and find minimum absolute difference
-        //--solution success
-
-
-        static int minimumAbsoluteDifference_solution2(int[] arr)
-        {
-            QuickSort(arr);
-            int minAbsDif = AbsoluteDifference(arr[0], arr[1]);
-            for(int i=2; i< arr.Length; i++)
-            {
-                if (minAbsDif > AbsoluteDifference(arr[i], arr[i - 1]))
-                {
-                    minAbsDif = AbsoluteDifference(arr[i], arr[i - 1]);
-                }
-            }
-            return minAbsDif;
-        }
-
-
-
 
 
 
 
         //--algorithm quicksort
-        public static void QuickSort(int[] input)
+        public static void QuickSort(int[] input, int hight)
         {
             int low = 0;
-            int hight = input.Length - 1;
             QuickSortRecursive(input, low, hight);
-            
+
         }
 
         //swap value 
@@ -118,7 +92,35 @@ namespace Hacker_Rank.Greedy_Algorithms
         }
 
     }
-    
+
+    //-- overriding method
+    public static class OverridingArrayInt
+    {
+        private static int _len = -1;
+
+        public static int Len
+        {
+            get { return _len; }
+            private set { _len = value; }
+
+        }
+        public static int Add(this int[] a, int num)
+        {
+            _len++;
+            a[_len] = num;
+            return _len;
+        }
+        public static int LenCurrent(this int[] a)
+        {
+            return _len;
+        }
+
+    }
+
+
+
+
+
+
+
 }
-
-

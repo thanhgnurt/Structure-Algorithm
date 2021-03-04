@@ -51,6 +51,7 @@
     <Compile Include="Dictionaries and Hashmaps\Hash Table_Random Note _ Solution 2.cs" />
     <Compile Include="Dictionaries and Hashmaps\Two Strings.cs" />
     <Compile Include="Array\Minimum Swaps 2.cs" />
+    <Compile Include="Greedy Algorithms\Luck Balance.cs" />
     <Compile Include="Greedy Algorithms\Minimum Absolute Difference in an Array.cs" />
     <Compile Include="Linked List\Cycle Detection.cs" />
     <Compile Include="Linked List\Find Merge.cs" />
