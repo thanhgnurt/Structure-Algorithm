@@ -59,6 +59,7 @@
     <Compile Include="Sort\Merge Sort.cs" />
     <Compile Include="Sort\Quick Sort Pivot Mid.cs" />
     <Compile Include="Sort\Quick Sort Pivot End.cs" />
+    <Compile Include="Sort\QuickSort_First.cs" />
     <Compile Include="Sort\Radix Sort.cs" />
     <Compile Include="Sort\Selection Sort.cs" />
     <Compile Include="Sort\Shell Sort.cs" />
