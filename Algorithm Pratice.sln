@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithm Pratice", "Algori
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hacker_Rank", "Hacker_Rank\Hacker_Rank.csproj", "{4788AEB9-18D1-4C33-B912-5F8A8C8BB2D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLearn", "CodeLearn\CodeLearn.csproj", "{8CBC71E5-9C4F-45A6-BEFE-794020219F69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeLearn", "CodeLearn\CodeLearn.csproj", "{8CBC71E5-9C4F-45A6-BEFE-794020219F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AFewOtherAlgorithms", "AFewOtherAlgorithms\AFewOtherAlgorithms.csproj", "{E01A0AD6-8D62-488A-A30D-45B3415F7C52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{8CBC71E5-9C4F-45A6-BEFE-794020219F69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CBC71E5-9C4F-45A6-BEFE-794020219F69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CBC71E5-9C4F-45A6-BEFE-794020219F69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E01A0AD6-8D62-488A-A30D-45B3415F7C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E01A0AD6-8D62-488A-A30D-45B3415F7C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E01A0AD6-8D62-488A-A30D-45B3415F7C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E01A0AD6-8D62-488A-A30D-45B3415F7C52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -75,6 +75,7 @@
     <Compile Include="Sort\Mark and Toys.cs" />
     <Compile Include="Stacks and Queues\Balanced Brackets.cs" />
     <Compile Include="Stacks and Queues\Stack.cs" />
+    <Compile Include="String Manipulation\MakingAnagrams.cs" />
     <Compile Include="Trees\BST_ Lowest Common Ancestor.cs" />
     <Compile Include="Trees\Huffman Decoding.cs" />
     <Compile Include="Trees\Trees_ Is This a Binary Search Tree.cs" />
