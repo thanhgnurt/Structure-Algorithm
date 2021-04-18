@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AFewOtherAlgorithms.Recursive;
 
 namespace AFewOtherAlgorithms
 {
@@ -7,6 +8,8 @@ namespace AFewOtherAlgorithms
     {
         static void Main(string[] args)
         {
+           //QueenProblem.TryAdd(8);
+           // Console.ReadKey();
             List<int[]> listResult = Class1.PermuteAgain(3);
             for(int i=0; i< listResult.Count; i++)
             {

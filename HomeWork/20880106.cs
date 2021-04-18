@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Algorithm_Pratice.Sort
+namespace HomeWork
 {
-    //Quick sort is document slide on school
-    public static class QuickSort_First
+    class _20880106
     {
         public static void QuickSort(int[] arr, int first, int last)
         {
-            if(first< last)
+            if (first < last)
             {
                 int pivotIndex = Partition(arr, first, last);
                 QuickSort(arr, first, pivotIndex - 1);
@@ -26,7 +23,7 @@ namespace Algorithm_Pratice.Sort
             int firstUnknow = first + 1;
             while (firstUnknow <= last)
             {
-                if(arr[firstUnknow] < arr[first])
+                if (arr[firstUnknow] < arr[first])
                 {
                     Swap(arr, lastS1 + 1, firstUnknow);
                     lastS1++;

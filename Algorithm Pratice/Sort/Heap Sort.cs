@@ -166,7 +166,7 @@ public class HeapSort
     }
 
     // Driver program 
-    public static void Main()
+    public static void Maingg()
     {
         int[] arr = { 12, 11, 13, 5, 6, 7 };
         int n = arr.Length;
